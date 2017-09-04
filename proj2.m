@@ -25,23 +25,23 @@ V_hat = [0 -V(3) V(2); V(3) 0 -V(1); -V(2) V(1) 0];
 end
 
 % Colocar o caminho para a imagem 1-2.
-I = imread("~/UnB/PVC/IMGS/1-2.jpeg");
+I = imread("~/UnB/PVC/IMGS/1-3.jpeg");
 imshow(I)
 
 %
 % Desenhar linha dos planos para encontrar ponto de fuga e horizonte
 %
 args = {"linestyle", "-", "color", "g", "linewidth", 1.3};
-line1 = createLine([0 239], [688 184]);
-line2 = createLine([0 408], [680 442]);
+line1 = createLine([0 235], [807 144]);
+line2 = createLine([0 400], [801 446]);
 drawLine(line1, args{:})
 drawLine(line2, args{:})
 % Primeiro ponto de fuga
-pf1 = intersectLines(line1, line2)
+pf1 = intersectLines(line1, line2);
 
 args = {"linestyle", "-", "color", "yellow", "linewidth", 1.3};
-line1 = createLine([688 184], [1107 282]);
-line2 = createLine([680 442], [1104 434]);
+line1 = createLine([807 144], [1164 235]);
+line2 = createLine([806 442], [1164 437]);
 drawLine(line1, args{:})
 drawLine(line2, args{:})
 % Segundo ponto de fuga
@@ -54,8 +54,8 @@ drawLine(horizonLine, args{:})
 
 % Pontos de cada pessoa. Para cada pessoa, os pontos tem um mesmo valor na
 % horizontal e diferentes na vertical
-edenEdge = [57, 313, 57, 448];
-lucasEdge = [497, 322, 497, 497];
+edenEdge = [187, 316, 187, 451];
+lucasEdge = [615, 326, 615, 501];
 
 % Desenha a linha de altura de cada pessoa.
 args = {"linestyle", "-", "color", "r", "linewidth", 2}
@@ -69,7 +69,7 @@ args = {"linestyle", "--", "color", "magenta", "linewidth", 1.5};
 fLine = createLine([lucasEdge(3), lucasEdge(4)], [edenEdge(3), edenEdge(4)]);
 drawLine(fLine, args{:});
 
-p = intersectLines(fLine, createLine(horizonLine))
+p = intersectLines(fLine, createLine(horizonLine));
 hLine = createLine(p, [edenEdge(1), edenEdge(2)])
 drawLine(hLine, args{:});
 
