@@ -39,3 +39,20 @@ args = {"linestyle", "-", "color", "r", "linewidth", 2}
 drawEdge(edenEdge, args{:})
 drawEdge(lucasEdge, args{:})
 
+%
+% Calcular relação entre as pessoas.
+%
+args = {"linestyle", "-", "color", "red", "linewidth", 0.5};
+hLine = createLine([lucasEdge(3), lucasEdge(4)], [edenEdge(3), edenEdge(4)]);
+drawLine(hLine, args{:});
+
+p = intersectLines(hLine, horizonLine);
+fLine = createLine(p, [edenEdge(1), edenEdge(2)])
+drawLine(fLine, args{:});
+
+edenH = intersectLines(hLine, lucasEdge)
+
+pixHeightEden = sqrt((edenH(1) - lucasEdge(3))**2 + (edenH(2) - lucasEdge(4))**2)
+pixHeightLucas = sqrt((lucasEdge(1) - lucasEdge(3))**2 + (lucasEdge(2) - lucasEdge(4))**2)
+diff = (pixHeightEden/pixHeightLucas) * 1.69
+
